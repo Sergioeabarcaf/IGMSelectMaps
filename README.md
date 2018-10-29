@@ -4,4 +4,4 @@ proyecto que permite seleccionar el mapa a desplegar en cubo IGM. Se compone de 
 ## Version 0.1
 ### WEB
 * Instalación de base para proyecto con mejoras aplicadas por npm audit fix.
-* Instalación de bootstrap 4 por medio local.
+* Instalación de bootstrap 4 via NPM.

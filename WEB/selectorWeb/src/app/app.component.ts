@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  maps = ['1', '2'];
+
+  select(id) {
+    console.log(id);
+  }
+
 }
