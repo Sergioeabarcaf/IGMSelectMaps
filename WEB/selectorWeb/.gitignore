@@ -19,12 +19,11 @@
 *.sublime-workspace
 
 # IDE - VSCode
-/.vscode/*
+.vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
-../../.vscode/*
 
 # misc
 /.sass-cache
@@ -35,7 +34,6 @@ npm-debug.log
 yarn-error.log
 testem.log
 /typings
-package-lock.json
 
 # e2e
 /e2e/*.js
@@ -44,3 +42,4 @@ package-lock.json
 # System Files
 .DS_Store
 Thumbs.db
+*.iml
