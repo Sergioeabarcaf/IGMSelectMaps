@@ -2,9 +2,6 @@ import {Component, OnDestroy} from '@angular/core';
 import {ConnectionStatus, MqttService, SubscriptionGrant} from './ngx-mqtt-client';
 import {IClientOptions} from 'mqtt';
 
-export interface Foo {
-    bar: string;
-}
 
 @Component({
     selector: 'app-root',
@@ -13,9 +10,6 @@ export interface Foo {
 })
 export class AppComponent implements OnDestroy {
 
-    messages: Array<Foo> = [];
-
-    status: Array<string> = [];
     maps = ['1', '2'];
 
     constructor(private _mqttService: MqttService) {
@@ -25,7 +19,8 @@ export class AppComponent implements OnDestroy {
          */
         this._mqttService.status().subscribe((s: ConnectionStatus) => {
             const status = s === ConnectionStatus.CONNECTED ? 'CONNECTED' : 'DISCONNECTED';
-            this.status.push(`Mqtt client connection status: ${status}`);
+            this.subscribe();
+            console.log(`Mqtt client connection status: ${status}`);
         });
     }
 
@@ -44,17 +39,17 @@ export class AppComponent implements OnDestroy {
      * After that the subscription will only emit new value if someone publishes into the fooBar topic.
      * */
     subscribe(): void {
-        this._mqttService.subscribeTo<Foo>('fooBar')
+        this._mqttService.subscribeTo<any>('load')
             .subscribe({
-                next: (msg: SubscriptionGrant | Foo) => {
+                next: (msg: SubscriptionGrant | any) => {
                     if (msg instanceof SubscriptionGrant) {
-                        this.status.push('Subscribed to fooBar topic!');
+                        console.log('subscrito al topico load');
                     } else {
-                        this.messages.push(msg);
+                        console.log(msg);
                     }
                 },
                 error: (error: Error) => {
-                    this.status.push(`Something went wrong: ${error.message}`);
+                    console.log(`hubo un error al subscribirse: ${error.message}`);
                 }
             });
     }
@@ -63,13 +58,13 @@ export class AppComponent implements OnDestroy {
     /**
      * Sends message to fooBar topic.
      */
-    sendMsg(): void {
-        this._mqttService.publishTo<Foo>('fooBar', {bar: 'foo'}).subscribe({
+    sendMsg(id): void {
+        this._mqttService.publishTo<any>('send', id).subscribe({
             next: () => {
-                this.status.push('Message sent to fooBar topic');
+                console.log(`Mensaje enviado a send: ${ id }`);
             },
             error: (error: Error) => {
-                this.status.push(`Something went wrong: ${error.message}`);
+                console.log(`hubo un error al enviar mensaje: ${error.message}`);
             }
         });
     }
@@ -78,12 +73,12 @@ export class AppComponent implements OnDestroy {
      * Unsubscribe from fooBar topic.
      */
     unsubscribe(): void {
-        this._mqttService.unsubscribeFrom('fooBar').subscribe({
+        this._mqttService.unsubscribeFrom('load').subscribe({
             next: () => {
-                this.status.push('Unsubscribe from fooBar topic');
+                console.log('Unsubscribe from fooBar topic');
             },
             error: (error: Error) => {
-                this.status.push(`Something went wrong: ${error.message}`);
+                console.log(`Something went wrong: ${error.message}`);
             }
         });
     }
@@ -93,6 +88,7 @@ export class AppComponent implements OnDestroy {
      * and close the connection with the broker
      */
     ngOnDestroy(): void {
+        this.unsubscribe();
         this._mqttService.end();
     }
 
