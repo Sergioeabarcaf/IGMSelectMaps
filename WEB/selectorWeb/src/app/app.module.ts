@@ -6,10 +6,12 @@ import {NgxMqttClientModule} from './ngx-mqtt-client';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import { LoadComponent } from './components/load/load.component';
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        LoadComponent
     ],
     imports: [
         BrowserModule,
