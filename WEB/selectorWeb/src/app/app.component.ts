@@ -11,6 +11,7 @@ import {IClientOptions} from 'mqtt';
 export class AppComponent implements OnDestroy {
 
     maps = ['1', '2'];
+    load = false;
 
     constructor(private _mqttService: MqttService) {
 
@@ -46,6 +47,9 @@ export class AppComponent implements OnDestroy {
                         console.log('subscrito al topico load');
                     } else {
                         console.log(msg);
+                        if (this.load = (msg === 'true')) {
+                            this.load = false;
+                        }
                     }
                 },
                 error: (error: Error) => {
@@ -61,6 +65,7 @@ export class AppComponent implements OnDestroy {
     sendMsg(id): void {
         this._mqttService.publishTo<any>('send', id).subscribe({
             next: () => {
+                this.load = true;
                 console.log(`Mensaje enviado a send: ${ id }`);
             },
             error: (error: Error) => {
