@@ -1,17 +1,23 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
+import { MqttIgmService } from './services/mqtt-igm.service';
+
 import {AppComponent} from './app.component';
 import {NgxMqttClientModule} from './ngx-mqtt-client';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import { LoadComponent } from './components/load/load.component';
+import { HeaderComponent } from './components/header/header.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
     declarations: [
         AppComponent,
-        LoadComponent
+        LoadComponent,
+        HeaderComponent,
+        HomeComponent
     ],
     imports: [
         BrowserModule,
@@ -19,14 +25,14 @@ import { LoadComponent } from './components/load/load.component';
         FlexLayoutModule,
         MatButtonModule,
         NgxMqttClientModule.withOptions({
-            host: '192.168.1.198',
+            host: '192.168.1.102',
             protocol: 'ws',
             port: 9001,
             path: '',
             keepalive: 5
         })
     ],
-    providers: [],
+    providers: [MqttIgmService],
     bootstrap: [AppComponent]
 })
 export class AppModule {
