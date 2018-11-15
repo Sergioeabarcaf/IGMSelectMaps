@@ -19,7 +19,7 @@ import { LoadComponent } from './components/load/load.component';
         FlexLayoutModule,
         MatButtonModule,
         NgxMqttClientModule.withOptions({
-            host: '10.26.103.245',
+            host: '192.168.1.198',
             protocol: 'ws',
             port: 9001,
             path: '',
