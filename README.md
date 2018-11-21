@@ -15,3 +15,13 @@ proyecto que permite seleccionar el mapa a desplegar en cubo IGM. Se compone de 
 * Busca el id recibido en un archivo JSON y muestra la matriz correspondiente.
 * Una vez encontrado, espera 3 segundo y publica en load un true. 
 * Creacion de bash para cargar sistema desde el arranque en RPI.
+
+## Version 0.2
+### WEB
+* Modificaciones en el envio de datos MQTT (de numneros a letras).
+* Se agrega boton para llevar todos los motores a cero.
+
+### BACK
+* Se realiza comunicacion serial entre python y arduino, se envia la letra del mapa seleccionado en angular y se espera la respuesta desde arduino cuando termine de cargar el modulo.
+* Se elimina la funcion searchJSON ya que era de prueba. Ahora se utiliza la funcion comSerial.
+* Se crea README en carpeta para entender la nomenclatura y librerias necesarias.

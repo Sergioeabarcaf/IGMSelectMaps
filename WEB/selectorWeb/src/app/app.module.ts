@@ -25,7 +25,7 @@ import { HomeComponent } from './components/home/home.component';
         FlexLayoutModule,
         MatButtonModule,
         NgxMqttClientModule.withOptions({
-            host: '192.168.1.102',
+            host: '192.168.1.198',
             protocol: 'ws',
             port: 9001,
             path: '',
