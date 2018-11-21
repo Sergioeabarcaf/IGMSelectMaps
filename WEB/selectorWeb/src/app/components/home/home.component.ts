@@ -7,8 +7,16 @@ import { MqttIgmService } from '../../services/mqtt-igm.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-
-  maps = ['1', '2'];
+  maps = [
+    {
+      'id': 1,
+      'serial': 'a'
+    },
+    {
+      'id': 2,
+      'serial': 'b'
+    }
+  ];
 
   constructor(public _igmService: MqttIgmService) { }
 
