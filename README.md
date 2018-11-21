@@ -25,3 +25,4 @@ proyecto que permite seleccionar el mapa a desplegar en cubo IGM. Se compone de 
 * Se realiza comunicacion serial entre python y arduino, se envia la letra del mapa seleccionado en angular y se espera la respuesta desde arduino cuando termine de cargar el modulo.
 * Se elimina la funcion searchJSON ya que era de prueba. Ahora se utiliza la funcion comSerial.
 * Se crea README en carpeta para entender la nomenclatura y librerias necesarias.
+* Se agrega envio de mensajes al topico error para luego desplegarlos en angular.

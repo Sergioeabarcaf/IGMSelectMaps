@@ -16,8 +16,11 @@ def comSerial(map):
             x = ser.read()
             print x
             if x == 'T':
+                publish.single('load','true',hostname="192.168.1.198")
                 break
-        publish.single('load','true',hostname="192.168.1.198")
+            if x == '0':
+                publish.single('error','La letra enviada no corresponde a los mapas.',hostname="192.168.1.198")
+                break
     else:
         publish.single('error','Comunicacion serial esta cerrada',hostname="192.168.1.198")
 
