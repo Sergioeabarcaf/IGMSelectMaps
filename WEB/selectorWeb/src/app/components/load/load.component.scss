@@ -5,7 +5,7 @@ $yspace: $h/4 - 1;
 $speed: 1.5s;
 .tetrominos {
     position: absolute;
-    top: 50%;
+    top: 60%;
     left: 50%;
     transform: translate(-$h, -$w);
 }
