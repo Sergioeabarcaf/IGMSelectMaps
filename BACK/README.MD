@@ -5,5 +5,5 @@
 
 
 ## Librerias pip a instalar
-* pip instalar pyserial
+* pip install pyserial
 * pip install paho-mqtt
