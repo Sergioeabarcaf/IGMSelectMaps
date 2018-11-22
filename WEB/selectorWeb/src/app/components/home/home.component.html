@@ -4,8 +4,8 @@
     </div>
 </div>
 <div class="row justify-content-center">
-    <div class="col-12 col-md-5 col-lg-3 m-4 text-center" *ngFor="let map of maps">
-        <img src="assets/maps/{{ map.id }}.jpg" alt="mapa{{ map.id }}" width="100%" class="m-2">
+    <div class="col-12 col-md-4 col-lg-3 m-4 text-center" *ngFor="let map of maps">
+        <img src="assets/maps/{{ map.id }}.jpg" alt="mapa{{ map.id }}" class="m-2 w-75">
         <button class="btn btn-primary" type="submit" (click)="_igmService.sendMsg(map.serial)">Desplegar mapa {{ map.id }}</button>
     </div>
 </div>
