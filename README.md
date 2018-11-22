@@ -22,6 +22,8 @@ proyecto que permite seleccionar el mapa a desplegar en cubo IGM. Se compone de 
 * Se agrega boton para llevar todos los motores a cero.
 * Se elimina propiedad img en header y se utilizan clases de bootstrap para el ancho de las imagenes.
 * En componente home se usa un w-75 para las imagenes.
+* Posicion vertical de cuadrados se ajusta al 60%.
+* Cambio de posicion en boton que lleva todos los motores a cero (abajo de mapas) y se cambia la descripción.
 
 ### BACK
 * Se realiza comunicacion serial entre python y arduino, se envia la letra del mapa seleccionado en angular y se espera la respuesta desde arduino cuando termine de cargar el modulo.
