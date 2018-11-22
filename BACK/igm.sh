@@ -1,7 +1,7 @@
 #!/bin/bash
 
-sleep 5
+sleep 30
 python /home/pi/IGMSelectMaps/BACK/main.py &
-sleep 5
+sleep 30
 cd /home/pi/IGMSelectMaps/WEB/selectorWeb
 ng serve &
