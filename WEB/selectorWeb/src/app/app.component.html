@@ -1,5 +1,9 @@
 <app-header></app-header>
-<div class="container mt-4 mb-2">
+<div class="pt-4 pb-3 base">
+    <div class="row justify-content-center">
+        <h4 *ngIf="_igmService.load"> Cargando módulo...</h4>
+        <h4 *ngIf="!_igmService.load"> Seleccione mapa a desplegar</h4>
+    </div>
     <div class="row">
         <app-home *ngIf="!_igmService.load"></app-home>
         <app-load *ngIf="_igmService.load"></app-load>
