@@ -1,3 +1,21 @@
-.padTop {
-    margin-top: 35%;
+.circulo {
+    width: 9rem;
+    height: 9rem;
+    border-radius: 50%;
+    background: #0D2636;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.circulo>i {
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.circulo>i>p {
+    font-size: 1rem;
+    font-family: 'Raleway', sans-serif;
 }

@@ -1,4 +1,11 @@
 .base {
-    background-color: #031520;
+    background-color: rgba($color: #031520, $alpha: 0.8);
     color: white;
+    font-family: 'Raleway', sans-serif;
+    height: 100%;
+}
+
+.imageBack {
+    background-image: url('/assets/maps/fondo.jpg');
+    background-position: -500px;
 }

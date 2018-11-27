@@ -20,4 +20,8 @@ export class HomeComponent {
 
   constructor(public _igmService: MqttIgmService) { }
 
+  test(aux: string) {
+    console.log(aux);
+  }
+
 }

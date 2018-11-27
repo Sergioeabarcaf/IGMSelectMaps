@@ -1,11 +1,13 @@
 <app-header></app-header>
-<div class="pt-4 pb-3 base">
-    <div class="row justify-content-center">
-        <h4 *ngIf="_igmService.load"> Cargando módulo...</h4>
-        <h4 *ngIf="!_igmService.load"> Seleccione mapa a desplegar</h4>
-    </div>
-    <div class="row">
-        <app-home *ngIf="!_igmService.load"></app-home>
-        <app-load *ngIf="_igmService.load"></app-load>
+<div class="imageBack">
+    <div class="pt-4 pb-5 base">
+        <div class="row justify-content-center">
+            <h4 *ngIf="_igmService.load"> Cargando módulo...</h4>
+            <h4 *ngIf="!_igmService.load"> Seleccione opción</h4>
+        </div>
+        <div class="row justify-content-center">
+            <app-home *ngIf="!_igmService.load"></app-home>
+            <app-load *ngIf="_igmService.load"></app-load>
+        </div>
     </div>
 </div>

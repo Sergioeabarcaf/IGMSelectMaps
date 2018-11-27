@@ -1,11 +1,30 @@
-<div class="row justify-content-center">
-    <div class="col-12 col-md-4 col-lg-3 m-4 text-center" *ngFor="let map of maps">
-        <img src="assets/maps/{{ map.id }}.jpg" alt="mapa{{ map.id }}" class="m-2 w-75">
-        <button class="btn btn-primary" type="submit" (click)="_igmService.sendMsg(map.serial)">Desplegar mapa {{ map.id }}</button>
+<div class="row justify-content-center mt-3">
+    <div class="col-3 text-center px-3 border-right">
+        <div class="circulo" (click)="test('i')">
+            <i class="fas fa-info">
+                <p class="mt-2">Información del proyecto</p>
+            </i>
+        </div>
     </div>
-</div>
-<div class="row justify-content-center">
-    <div class="col-8">
-        <button class="btn btn-outlet-primary w-100" (click)="_igmService.sendMsg('z')">Cota cero</button>
+    <div class="col-3 text-center px-3 border-right">
+        <div class="circulo" (click)="_igmService.sendMsg('a')">
+            <i class="fas fa-map-marker-alt">
+                <p class="mt-2">Mapa 1</p>
+            </i>
+        </div>
+    </div>
+    <div class="col-3 text-center px-3 border-right">
+        <div class="circulo" (click)="_igmService.sendMsg('b')">
+            <i class="fas fa-map-marker-alt">
+                <p class="mt-2">Mapa 2</p>
+            </i>
+        </div>
+    </div>
+    <div class="col-3 text-center px-3">
+        <div class="circulo" (click)="_igmService.sendMsg('z')">
+            <i class="fas fa-map-marker-alt">
+                <p class="mt-2">Cota 0</p>
+            </i>
+        </div>
     </div>
 </div>
