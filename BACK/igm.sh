@@ -1,7 +1,7 @@
 #!/bin/bash
 
-sleep 30
+sleep 20
 python /home/pi/IGMSelectMaps/BACK/main.py &
-sleep 30
-cd /home/pi/IGMSelectMaps/WEB/selectorWeb
-ng serve &
+sleep 10
+cd /home/pi/IGMSelectMaps/WEB/selectorWeb/dist
+http-server &
