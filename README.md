@@ -32,3 +32,9 @@ proyecto que permite seleccionar el mapa a desplegar en cubo IGM. Se compone de 
 * Se agrega envio de mensajes al topico error para luego desplegarlos en angular.
 * Se agrega mas tiempo para iniciar sistema (30 segundos por cada componente).
 * Reparacion de paquetes con errores (menos actualizar @angular/cli).
+
+## Version 0.3
+### WEB
+* Modificaciones a la interfaz web.
+
+### BACK
