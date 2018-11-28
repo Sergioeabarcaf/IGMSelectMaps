@@ -14,7 +14,7 @@ GPIO.output(BLUE,0)
 
 def loadInit():
     GPIO.output(BLUE,1)
-    time.sleep(40)
+    time.sleep(12)
     GPIO.output(BLUE,0)
     GPIO.output(GREEN,1)
 
