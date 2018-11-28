@@ -1,4 +1,5 @@
 import RPi.GPIO as GPIO
+import time
 
 GPIO.setmode(GPIO.BCM)
 RED = 25
@@ -11,12 +12,17 @@ GPIO.output(GREEN,0)
 GPIO.setup(BLUE,GPIO.OUT)
 GPIO.output(BLUE,0)
 
-try:
-  while (True):
-      request = raw_input("RGB->")
-      if (len(request) == 3):
-          GPIO.output(RED,int(request[0]))
-          GPIO.output(GREEN,int(request[1]))
-          GPIO.output(BLUE,int(request[2]))
-except KeyboardInterrupt:
-    GPIO.cleanup()
+def loadInit():
+    GPIO.output(BLUE,1)
+    time.sleep(40)
+    GPIO.output(BLUE,0)
+    GPIO.output(GREEN,1)
+
+def errorSerial():
+    i = 0
+    GPIO.output(GREEN,0)
+    while(i<10):
+        GPIO.output(RED,1)
+        time.sleep(0,5)
+        GPIO.output(RED,0)
+        time.sleep(0,5)

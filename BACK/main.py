@@ -5,6 +5,7 @@ import time
 import serial 
 import paho.mqtt.client
 import paho.mqtt.publish as publish
+import ledRGB
 
 ser = serial.Serial('/dev/ttyACM0')
 ser.baudrate = 115200
@@ -22,6 +23,7 @@ def comSerial(map):
                 publish.single('error','La letra enviada no corresponde a los mapas.',hostname="192.168.1.198")
                 break
     else:
+        ledRGB.errorSerial()
         publish.single('error','Comunicacion serial esta cerrada',hostname="192.168.1.198")
 
 def on_connect(client, userdata, flags, rc):
@@ -33,12 +35,13 @@ def on_message(client, userdata, message):
 
  
 def main():
+    ledRGB.loadInit()
     client = paho.mqtt.client.Client(client_id='pythonIGM', clean_session=False)
     client.on_connect = on_connect
     client.on_message = on_message
     client.connect(host='192.168.1.198', port=1883)
     client.loop_forever()
- 
+
 if __name__ == '__main__':
     main()
  
