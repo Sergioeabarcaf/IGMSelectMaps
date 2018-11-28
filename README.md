@@ -36,5 +36,11 @@ proyecto que permite seleccionar el mapa a desplegar en cubo IGM. Se compone de 
 ## Version 0.3
 ### WEB
 * Modificaciones a la interfaz web.
+* Actualizacion de imagen de fondo.
+* No hacer seguimiento a carpeta dist
+
 
 ### BACK
+* Se agrega uso de LED RGB (azul para cargando, verde listo, rojo parpadeante error).
+* Actualizacion de BASH inicial.
+* Cambios en los tiempos de ejecucion (5 y 10).
