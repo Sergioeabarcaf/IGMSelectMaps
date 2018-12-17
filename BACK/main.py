@@ -29,9 +29,6 @@ def comSerial(map):
                 if map == 'off':
                     os.system("sudo shutdown -h now")
                 break
-            if x == '0':
-                publish.single('error','La letra enviada no corresponde a los mapas.',hostname=host)
-                break
     else:
         ledRGB.errorSerial()
         publish.single('error','Comunicacion serial esta cerrada',hostname=host)
