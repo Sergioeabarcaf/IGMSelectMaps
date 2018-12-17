@@ -15,9 +15,11 @@ host = "192.168.1.197"
 
 def comSerial(map):
     if(ser.is_open):
-        ser.write(map)
         if map == 'off':
             ledRGB.off()
+            ser.write('y')
+        else:
+            ser.write(map)
         while(True):
             x = ser.read()
             print x
@@ -47,8 +49,6 @@ def main():
     client.on_connect = on_connect
     client.on_message = on_message
     client.connect(host=host, port=1883)
-    time.sleep(5)
-    os.system("chromium-browser --start-fullscreen &")
     client.loop_forever()
 
 if __name__ == '__main__':
