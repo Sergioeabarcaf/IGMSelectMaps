@@ -15,21 +15,23 @@ host = "192.168.1.197"
 
 def comSerial(map):
     if(ser.is_open):
-        if map == 'off':
+        if map == 'off' or map == 'reset':
             ser.write('y')
+            ledRGB.off()
         else:
             ser.write(map)
         while(True):
             x = ser.read()
-            print x
             if x == 'T':
                 publish.single('load','true',hostname=host)
-                if map == 'off':
+                if map == 'reset':
                     os.system("sudo reboot")
+                if map == 'off':
+                    os.system("sudo shutdown -h now")
                 break
-            # if x == '0':
-            #     publish.single('error','La letra enviada no corresponde a los mapas.',hostname=host)
-            #     break
+            if x == '0':
+                publish.single('error','La letra enviada no corresponde a los mapas.',hostname=host)
+                break
     else:
         ledRGB.errorSerial()
         publish.single('error','Comunicacion serial esta cerrada',hostname=host)

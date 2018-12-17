@@ -28,9 +28,10 @@ def errorSerial():
         time.sleep(0,5)
 
 def off():
-	GPIO.output(GREEN,0)
-	while(True):
-		GPIO.output(RED,1)
-		time.sleep(1)
-		GPIO.output(RED,0)
-		time.sleep(1)
+    i = 0
+    GPIO.output(GREEN,0)
+    while(i<5):
+        GPIO.output(RED,1)
+        time.sleep(0,8)
+        GPIO.output(RED,0)
+        time.sleep(0,5)
