@@ -41,7 +41,7 @@ def on_connect(client, userdata, flags, rc):
     client.subscribe(topic='send', qos=2)
  
 def on_message(client, userdata, message):
-    return comSerial(message.payload)
+    comSerial(message.payload)
 
  
 def main():
