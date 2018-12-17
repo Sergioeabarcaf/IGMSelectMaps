@@ -17,9 +17,11 @@ def comSerial(map):
     if(ser.is_open):
         if map == 'off':
             ledRGB.off()
-            ser.write('y')
-        else:
-            ser.write(map)
+            print (map)
+            map = 'y'
+            print ("paso")
+        print (map)
+        ser.write(map)
         while(True):
             x = ser.read()
             print x
