@@ -33,7 +33,7 @@ def off():
     GPIO.output(GREEN,0)
     while(i<5):
         GPIO.output(RED,1)
-        time.sleep(0,8)
+        time.sleep(0.5)
         GPIO.output(RED,0)
-        time.sleep(0,5)
+        time.sleep(0.5)
         i += 1

@@ -27,7 +27,7 @@ import { HomeComponent } from './components/home/home.component';
         NgxMqttClientModule.withOptions({
             host: '192.168.1.197',
             protocol: 'ws',
-            port: 9001,
+            port: 1883,
             path: '',
             keepalive: 5
         })
