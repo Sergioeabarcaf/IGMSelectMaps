@@ -16,15 +16,19 @@ host = "192.168.1.197"
 def comSerial(map):
     if(ser.is_open):
         ser.write(map)
+        if map == 'off':
+            ledRGB.off()
         while(True):
             x = ser.read()
             print x
             if x == 'T':
                 publish.single('load','true',hostname=host)
+                if map == 'off':
+                    os.system("sudo reboot")
                 break
-            if x == '0':
-                publish.single('error','La letra enviada no corresponde a los mapas.',hostname=host)
-                break
+            # if x == '0':
+            #     publish.single('error','La letra enviada no corresponde a los mapas.',hostname=host)
+            #     break
     else:
         ledRGB.errorSerial()
         publish.single('error','Comunicacion serial esta cerrada',hostname=host)
@@ -34,16 +38,7 @@ def on_connect(client, userdata, flags, rc):
     client.subscribe(topic='send', qos=2)
  
 def on_message(client, userdata, message):
-    if(message.payload == "off"):
-        ser.write('y')
-        ledRGB.off()
-        while(True):
-            x = ser.read()
-            if x == 'T':
-                break
-        os.system("sudo reboot")
-    else:
-        comSerial(message.payload)
+    return comSerial(message.payload)
 
  
 def main():
