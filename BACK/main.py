@@ -16,12 +16,9 @@ host = "192.168.1.197"
 def comSerial(map):
     if(ser.is_open):
         if map == 'off':
-            ledRGB.off()
-            print (map)
-            map = 'y'
-            print ("paso")
-        print (map)
-        ser.write(map)
+            ser.write('y')
+        else:
+            ser.write(map)
         while(True):
             x = ser.read()
             print x
