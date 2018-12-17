@@ -8,7 +8,7 @@ import paho.mqtt.publish as publish
 import ledRGB
 import os
 
-ser = serial.Serial('/dev/ttyACM0')
+ser = serial.Serial('/dev/ttyUSB0')
 ser.baudrate = 115200
 
 host = "192.168.1.197"
@@ -35,6 +35,12 @@ def on_connect(client, userdata, flags, rc):
  
 def on_message(client, userdata, message):
     if(message.payload == "off"):
+        ser.write('y')
+        ledRGB.off()
+        while(True):
+            x = ser.read()
+            if x == 'T':
+                break
         os.system("sudo reboot")
     else:
         comSerial(message.payload)
@@ -47,7 +53,7 @@ def main():
     client.on_message = on_message
     client.connect(host=host, port=1883)
     time.sleep(5)
-    os.system("chromium-browser --start-fullscreen")
+    os.system("chromium-browser --start-fullscreen &")
     client.loop_forever()
 
 if __name__ == '__main__':
