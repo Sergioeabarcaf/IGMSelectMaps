@@ -11,7 +11,7 @@ import os
 ser = serial.Serial('/dev/ttyUSB0')
 ser.baudrate = 115200
 
-host = "192.168.1.197"
+host = "127.0.0.1"
 
 def comSerial(map):
     if(ser.is_open):
@@ -38,6 +38,7 @@ def on_connect(client, userdata, flags, rc):
     client.subscribe(topic='send', qos=2)
  
 def on_message(client, userdata, message):
+    print(message.payload)
     comSerial(message.payload)
 
  

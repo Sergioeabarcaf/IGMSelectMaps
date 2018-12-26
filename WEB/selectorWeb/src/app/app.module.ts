@@ -27,7 +27,7 @@ import { InfoComponent } from './components/info/info.component';
         FlexLayoutModule,
         MatButtonModule,
         NgxMqttClientModule.withOptions({
-            host: '192.168.1.197',
+            host: '127.0.0.1',
             protocol: 'ws',
             port: 9001,
             path: '',
