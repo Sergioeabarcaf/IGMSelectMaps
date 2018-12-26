@@ -1,13 +1,16 @@
-<app-header></app-header>
-<div class="imageBack h-100">
-    <div class="pt-4 pb-5 base">
-        <div class="row justify-content-center">
-            <h4 *ngIf="_igmService.load"> Cargando módulo...</h4>
-            <h4 *ngIf="!_igmService.load"> Seleccione opción</h4>
-        </div>
-        <div class="row justify-content-center">
-            <app-home *ngIf="!_igmService.load"></app-home>
-            <app-load *ngIf="_igmService.load"></app-load>
+<app-info *ngIf="_igmService.info"></app-info>
+<div *ngIf="!_igmService.info">
+    <app-header></app-header>
+    <div class="imageBack h-100">
+        <div class="pt-4 pb-5 base">
+            <div class="row justify-content-center">
+                <h4 *ngIf="_igmService.load"> Cargando módulo...</h4>
+                <h4 *ngIf="!_igmService.load"> Seleccione opción</h4>
+            </div>
+            <div class="row justify-content-center">
+                <app-home *ngIf="!_igmService.load"></app-home>
+                <app-load *ngIf="_igmService.load"></app-load>
+            </div>
         </div>
     </div>
 </div>

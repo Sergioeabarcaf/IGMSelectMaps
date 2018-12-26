@@ -6,6 +6,7 @@ import {IClientOptions} from 'mqtt';
 export class MqttIgmService implements OnDestroy  {
 
   load = false;
+  info = false;
 
   constructor(private _mqttService: MqttService) {
     this._mqttService.status().subscribe((s: ConnectionStatus) => {

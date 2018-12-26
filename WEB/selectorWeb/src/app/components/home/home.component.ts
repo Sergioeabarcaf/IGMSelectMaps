@@ -7,21 +7,11 @@ import { MqttIgmService } from '../../services/mqtt-igm.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-  maps = [
-    {
-      'id': 1,
-      'serial': 'a'
-    },
-    {
-      'id': 2,
-      'serial': 'b'
-    }
-  ];
 
   constructor(public _igmService: MqttIgmService) { }
 
-  test(aux: string) {
-    console.log(aux);
+  info() {
+    this._igmService.info = true;
   }
 
 }
