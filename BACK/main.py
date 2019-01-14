@@ -2,7 +2,7 @@ import ssl
 import sys
 import json
 import time
-import serial 
+import serial
 import paho.mqtt.client
 import paho.mqtt.publish as publish
 import ledRGB
@@ -36,13 +36,14 @@ def comSerial(map):
 def on_connect(client, userdata, flags, rc):
     print('connected (%s)' % client._client_id)
     client.subscribe(topic='send', qos=2)
- 
+
 def on_message(client, userdata, message):
     print(message.payload)
     comSerial(message.payload)
 
- 
+
 def main():
+    os.system("export DISPLAY=:0 && chromium-browser http://localhost --start-fullscreen &")
     ledRGB.loadInit()
     client = paho.mqtt.client.Client(client_id='pythonIGM', clean_session=False)
     client.on_connect = on_connect
@@ -52,5 +53,5 @@ def main():
 
 if __name__ == '__main__':
     main()
- 
+
 sys.exit(0)
